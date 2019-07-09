@@ -15,7 +15,7 @@
     },
 	"Restore And Breath": {
       "suggested_key": { 
-		"default": "Alt+Shift+T" 
+		"default": "Alt+Shift+Q" 
 		},
       "description": "Restore last session"
     }
