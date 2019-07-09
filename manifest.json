@@ -1,0 +1,28 @@
+{
+  "name": "Save And Sleep",
+  "version": "0.1",
+  "description": "Feeling dizzzyyyyyyyyyy?? Save all tabs and just take a nap.I'm sure, we need it.",
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+"commands": {
+    "Save And Sleep": {
+      "suggested_key": { 
+		"default": "Alt+Shift+M" 
+		},
+      "description": "Save all opened tabs for later use"
+    },
+	"Restore And Breath": {
+      "suggested_key": { 
+		"default": "Alt+Shift+T" 
+		},
+      "description": "Restore last session"
+    }
+
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "manifest_version": 2
+}
