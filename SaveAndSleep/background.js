@@ -3,7 +3,8 @@ chrome.commands.onCommand.addListener(function(command) {
 chrome.windows.getAll({populate:true},function(windows){
   windows.forEach(function(window){
     window.tabs.forEach(function(tab){
-      console.log(tab.url);
+      console.log(tab);
+	chrome.tabs.create({ url: tab.url });
     });
   });
 });
