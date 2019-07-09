@@ -4,7 +4,7 @@ chrome.windows.getAll({populate:true},function(windows){
   windows.forEach(function(window){
     window.tabs.forEach(function(tab){
       console.log(tab);
-	chrome.tabs.create({ url: tab.url });
+	//chrome.tabs.create({ url: tab.url });
     });
   });
 });
