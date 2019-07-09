@@ -1,0 +1,4 @@
+{
+	"tabs" : ["link1","link2",...,"linkn"]
+	"active_tab" : "3"
+}
