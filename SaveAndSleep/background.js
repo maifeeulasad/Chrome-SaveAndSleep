@@ -1,12 +1,7 @@
 chrome.commands.onCommand.addListener(function(command) {
   	if (command == "Save And Sleep") {
 chrome.windows.getAll({populate:true},function(windows){
-  windows.forEach(function(window){
-    window.tabs.forEach(function(tab){
-      console.log(tab);
-	//chrome.tabs.create({ url: tab.url });
-    });
-  });
+	console.log(windows);
 });
   	}
 	else if(command=="Restore And Breath"){
