@@ -1,48 +1,39 @@
 chrome.commands.onCommand.addListener(function(command) {
-  	if (command == "Save And Sleep") {
-	let time_=new Date().toISOString();
-chrome.windows.getAll({populate:true},function(windows){
-	//console.log(windows);
-	windows.forEach(function(window){
-	
-		let data_= JSON.stringify(window);
-
-		let key_="MUA-Save&Sleep " + time_+" "+window.id;
-
-
-		chrome.storage.sync.set({key_:data_}, function() {
-			console.log(data_+"saved");
-		});
-
-	});
-});
-  	}
-	else if(command=="Restore And Breath"){
-		//let json_=JSON.parse(JSON.stringify(window));
-		
-
-
-		chrome.storage.sync.get(null, function(items) {
-    		var allKeys = Object.keys(items);
-    		console.log(allKeys);
-		//console.log(allKeys[1]);
-
-
-		allKeys.forEach(function(key){
-		chrome.storage.sync.get([key], function(result) {
-          console.log('Value currently is ' + result.key);
+    if (command == "Save And Sleep") {
+        let time_ = new Date().toISOString();
+        chrome.windows.getAll({
+            populate: true
+        }, function(windows) {
+            windows.forEach(function(window) {
+                let data_ = JSON.stringify(window);
+                let key_ = "MUA-S&S " + time_ + " " + window.id;
+                var obj = {};
+                obj[key_] = data_;
+                chrome.storage.sync.set(obj, function() {
+					
+                });
+            });
         });
-
-
-	});
-	
-
-	
-	
-
-});
-
-
-
-	}
+    } 
+	else if (command == "Restore And Breath") {
+		
+        chrome.storage.sync.get(null, function(items) {
+            var allKeys = Object.keys(items);
+            allKeys.forEach(function(key) {
+                if (key.startsWith("MUA-S&S") == true) 
+				{
+                    chrome.storage.sync.get([key], function(result) {
+						let json_=JSON.parse(JSON.stringify(result));
+						console.log(json_);
+						console.log(json_.tabs);
+						/*
+						chrome.windows.create({
+							'url':'chrome://newtab'
+							});
+							*/
+                    });
+                }
+            });
+        });
+    }
 });
