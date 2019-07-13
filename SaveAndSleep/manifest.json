@@ -22,7 +22,8 @@
 
   },
   "permissions": [
-    "tabs"
+    	"tabs",
+	"storage"
   ],
 	"browser_action":{
 		"default_title" : "Save And Sleep"
