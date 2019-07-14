@@ -28,5 +28,8 @@
 	"browser_action":{
 		"default_title" : "Save And Sleep"
 	},
-  "manifest_version": 2
+  "manifest_version": 2,
+"browser_action": {
+  "default_icon": "mua_icon.png"
+}
 }
