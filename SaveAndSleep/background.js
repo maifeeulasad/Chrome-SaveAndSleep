@@ -16,21 +16,19 @@ chrome.commands.onCommand.addListener(function(command) {
         });
     } 
 	else if (command == "Restore And Breath") {
-		
         chrome.storage.sync.get(null, function(items) {
             var allKeys = Object.keys(items);
             allKeys.forEach(function(key) {
                 if (key.startsWith("MUA-S&S") == true) 
 				{
                     chrome.storage.sync.get([key], function(result) {
-						let json_=JSON.parse(JSON.stringify(result));
-						console.log(json_);
-						console.log(json_.tabs);
-						/*
+						let tabs_=JSON.parse(result[Object.keys(result)[0]])['tabs'];
 						chrome.windows.create({
 							'url':'chrome://newtab'
 							});
-							*/
+						tabs_.forEach(function(tab_){
+							chrome.tabs.create({'url':tab_['url']});
+						});
                     });
                 }
             });
