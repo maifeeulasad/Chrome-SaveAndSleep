@@ -1,35 +1,34 @@
 {
-  "name": "Save And Sleep",
-  "version": "0.1",
-  "description": "Feeling dizzzyyyyyyyyyy?? Save all tabs and just take a nap.I'm sure, we need it.",
-  "background": {
-    "persistent": false,
-    "scripts": ["background.js"]
-  },
+	"name": "Save And Sleep",
+	"version": "0.1",
+	"description": "Feeling dizzzyyyyyyyyyy?? Save all tabs and just take a nap.I'm sure, we need it.",
+	"background": {
+		"persistent": false,
+		"scripts": ["background.js","util.js"]
+	},
 "commands": {
     "Save And Sleep": {
-      "suggested_key": { 
-		"default": "Alt+Shift+M" 
+		"suggested_key": { 
+			"default": "Alt+Shift+M" 
 		},
-      "description": "Save all opened tabs for later use"
+		"description": "Save all opened tabs for later use"
     },
 	"Restore And Breath": {
-      "suggested_key": { 
-		"default": "Alt+Shift+Q" 
+		"suggested_key": { 
+			"default": "Alt+Shift+Q" 
 		},
-      "description": "Restore last session"
+		"description": "Restore last session"
     }
 
   },
   "permissions": [
     	"tabs",
-	"storage"
-  ],
+		"storage"
+		],
 	"browser_action":{
-		"default_title" : "Save And Sleep"
+		"default_title" : "Save And Sleep",
+		"default_icon": "mua_icon.png",
+		"default_popup": "popup.html"
 	},
-  "manifest_version": 2,
-"browser_action": {
-  "default_icon": "mua_icon.png"
-}
+	"manifest_version": 2
 }
